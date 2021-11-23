@@ -76,7 +76,17 @@ def choose_move(data: dict) -> str:
    
     # TODO Using information from 'data', don't let your Battlesnake pick a move that would hit its own body
 
-    
+    my_head = data["you"]["head"]
+    my_body = data["you"]["body"]
+
+    if my_body["x"] == my_head["x"]-1:
+        possible_moves.remove("left")
+    if my_body["x"] == my_head["x"]+1:
+        possible_moves.remove("right")
+    if my_body["y"] == my_head["y"]-1:
+        possible_moves.remove("down")
+    if my_body["y"] == my_head["y"]+1:
+        possible_moves.remove("up")
 
     # TODO: Using information from 'data', don't let your Battlesnake pick a move that would collide with another Battlesnake
 
